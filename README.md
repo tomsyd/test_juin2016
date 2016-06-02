@@ -53,3 +53,15 @@ For the moment, there are several problems in the script:
 
 1. it does not convert Year-Month to datetime (so the plot is really ugly)
 2. there are 2 warnings to fix
+
+Bonus exercice 2: write a web service:
+--------------------------------------
+
+First step: generate a csv file containing all (sorted) data from the second exercice:
+
+```
+> python b2_data_from_test2.py bookings.csv
+> python test1.py test2_result.csv
+```
+
+* test2_result.csv: 2275 lines
