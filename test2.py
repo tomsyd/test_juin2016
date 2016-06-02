@@ -12,10 +12,12 @@ if __name__ == '__main__':
         sys.exit(0)
     else:
         # extract data from file
-        aData = pandas.read_csv(aFile,sep='^',low_memory=False)
+        aChunks = pandas.read_table(aFile,chunksize=10000,sep='^',usecols=['arr_port','pax'])
+        aData = pandas.DataFrame()
+        aData = pandas.concat(chunk for chunk in aChunks)
         grouped = aData.groupby(aData['arr_port']).sum()
         sgrouped = grouped.sort_values(by='pax',ascending=False)
-        geo = GeoBase(data='ori_por', verbose=False)
+        geo = GeoBase(data='ori_por',verbose=False)
         for i in range(10):
             try:
                 item = sgrouped.ix[i]
