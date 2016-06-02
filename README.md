@@ -45,4 +45,10 @@ Out[35]: 'M\xc3\xa1laga Airport'
 Out[36]: 'Barcelona\xe2\x80\x93El Prat Airport'
 ```
 
+> python test2.py smallSearchFile
 
+For the moment, there are several problems in the script:
+
+1. it does not work for large files;
+2. it does not convert Year-Month to datetime (so the plot is really ugly)
+3. there are 2 warnings to fix
