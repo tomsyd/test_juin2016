@@ -7,12 +7,15 @@ if __name__ == '__main__':
         print 'Please provide a search file.'
         sys.exit(0)
     aFile = sys.argv[1]
-    aData = pandas.read_csv(aFile,sep='^')
+    aChunks = pandas.read_table(aFile,chunksize=10000,sep='^',usecols=['Date','Destination'],parse_dates=True)
+    aData = pandas.DataFrame()
+    aData = pandas.concat(chunk for chunk in aChunks)
     aCities = ['MAD','AGP','BCN']
     mData = aData[aData.Destination.isin(aCities)]
     mData['YM'] = mData['Date'].map(lambda x: x[:7])
     mData['counter'] = 1
     mGrouped = mData.groupby(['Destination','YM']).counter.sum().reset_index()
+    print mGrouped
 
     df = pandas.DataFrame({m: mGrouped[mGrouped.Destination.isin([m,])]['counter'] for m in aCities})
 
