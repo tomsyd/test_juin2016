@@ -58,7 +58,7 @@ For the moment, there are several problems in the script:
 Bonus exercise 2: write a web service:
 --------------------------------------
 
-1. First step: generate a csv file containing all (sorted) data from the second exercise:
+First step: generate a csv file containing all (sorted) data from the second exercise:
 
 ```
 > python b2_data_from_test2.py bookings.csv
@@ -67,12 +67,12 @@ Bonus exercise 2: write a web service:
 
 * test2_result.csv: 2275 lines
 
-2. To start the web service:
+Second step: to start the web service:
 
 ```
 > python b2.py
 ```
 
-3. Example: web link to retrieve the top 12 airports.
+Example: web link to retrieve the top 12 airports.
 
 * http://localhost:8080/airports/12
