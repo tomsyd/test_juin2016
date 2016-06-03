@@ -15,7 +15,6 @@ if __name__ == '__main__':
     mData['YM'] = mData['Date'].map(lambda x: x[:7])
     mData['counter'] = 1
     mGrouped = mData.groupby(['Destination','YM']).counter.sum().reset_index()
-    print mGrouped
 
     df = pandas.DataFrame({m: mGrouped[mGrouped.Destination.isin([m,])]['counter'] for m in aCities})
 
