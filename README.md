@@ -76,3 +76,24 @@ Second step: to start the web service:
 Example: web link to retrieve the top 12 airports.
 
 * http://localhost:8080/airports/12
+
+Bonus exercise 1: match serach with bookings:
+---------------------------------------------
+
+First step: reduce the bookings file as small as possible. We will just keep thos columns useful for the search identification:
+
+* pos_oid: to identify the point of sales office id
+* dep_port: origin
+* arr_port: destination
+* cre_date: creation date should be the same or one day after the search date - to simplify, let's say the same day here
+* brd_time: bording day of the flight
+
+```
+> python b1_data_from_bookings.py bookings.csv
+```
+
+The above command will generate a new file called bkg4b1.csv which will contain only the cited 5 columns.
+
+The reason here is to get a file of small size for our use (940M instead of 4.1G).
+
+So potentially we could hope to keep this file in memory for our next step.
