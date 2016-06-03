@@ -1,5 +1,11 @@
 # test_juin2016
 
+** all large size files will not be commited:
+* bookings.csv
+* searches.csv
+* bkg4b1.csv (temporary file generated in Bonus 1 exercise)
+* bkg.db (db generated in Bonus 1 exercise)
+
 First exercise:
 ---------------
 
@@ -80,7 +86,7 @@ Example: web link to retrieve the top 12 airports.
 Bonus exercise 1: match serach with bookings:
 ---------------------------------------------
 
-First step: reduce the bookings file as small as possible. We will just keep thos columns useful for the search identification:
+First step: reduce the bookings file as small as possible. We will just keep those columns which will be useful for the search identification:
 
 * pos_oid: to identify the point of sales office id
 * dep_port: origin
@@ -96,4 +102,22 @@ The above command will generate a new file called bkg4b1.csv which will contain 
 
 The reason here is to get a file of small size for our use (940M instead of 4.1G).
 
-So potentially we could hope to keep this file in memory for our next step.
+Second step: plug all above booking data into a sqlite db.
+
+```
+> python b1_data_into_sqlite.py
+```
+
+Note that this step could be easily merged into the previous one, but I just leave it as such.
+
+This step takes quite a lot of time to finish... i.e. the code is not optimised.
+
+There is a small bug in the db creation, the first column in the database is useless... which however has increased the size of the db file.
+
+Third step: build a new csv file
+
+```
+> python b1.py verySmallSearchFile
+```
+
+The current version can only treat a few lines... and for the moment only compare 2 attributes (should later compare the 5 attributes available in the sqlite database)
