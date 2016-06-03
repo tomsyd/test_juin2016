@@ -1,16 +1,17 @@
 # test_juin2016
 
-First exercice:
+First exercise:
 ---------------
 
 ```
-> python test1.py fileName
+> python test1.py bookings.csv
+> python test1.py searches.csv
 ```
 
 * bookings.csv: 10000011 lines
 * searches.csv: 20390199 lines
 
-Second exercice:
+Second exercise:
 ----------------
 
 The airport names are displayed in the output:
@@ -29,7 +30,7 @@ San Francisco International Airport 58000.0
 Dubai International Airport 55590.0
 ```
 
-Third exercice:
+Third exercise:
 ---------------
 
 We check the 3 Spain cities: MAD, AGP and BCN.
@@ -46,7 +47,7 @@ Out[36]: 'Barcelona\xe2\x80\x93El Prat Airport'
 ```
 
 ```
-> python test3.py searchFile
+> python test3.py searches.csv
 ```
 
 For the moment, there are several problems in the script:
@@ -54,10 +55,10 @@ For the moment, there are several problems in the script:
 1. it does not convert Year-Month to datetime (so the plot is really ugly)
 2. there are 2 warnings to fix
 
-Bonus exercice 2: write a web service:
+Bonus exercise 2: write a web service:
 --------------------------------------
 
-First step: generate a csv file containing all (sorted) data from the second exercice:
+1. First step: generate a csv file containing all (sorted) data from the second exercise:
 
 ```
 > python b2_data_from_test2.py bookings.csv
@@ -65,3 +66,13 @@ First step: generate a csv file containing all (sorted) data from the second exe
 ```
 
 * test2_result.csv: 2275 lines
+
+2. To start the web service:
+
+```
+> python b2.py
+```
+
+3. Example: web link to retrieve the top 12 airports.
+
+* http://localhost:8080/airports/12

@@ -15,18 +15,15 @@ class getJsonOutput:
         aFile = './test2_result.csv'
         csvReader = csv.reader(open(aFile,'rb'))
         ret = dict()
-        counter = 0
+        c = 0
         for row in csvReader:
             try:
-                airport,n = row
-                n = int(n)
-                counter += 1
-                ret[counter] = {'airport':airport,'nbPax':n}
-                if counter >= nb:
+                c += 1
+                ret[c] = {'airport':row[0],'nbPax':row[1]}
+                if c >= nb:
                     break
             except:
                 continue
-        print ret
         return str(json.dumps(ret,sort_keys=True))
 
 if __name__ == "__main__":
