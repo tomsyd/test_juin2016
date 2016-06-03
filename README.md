@@ -120,4 +120,6 @@ Third step: build a new csv file
 > python b1.py verySmallSearchFile
 ```
 
-The current version can only treat a few lines... and for the moment only compare 2 attributes (should later compare the 5 attributes available in the sqlite database)
+The current version is draft only and it can only treat a few lines...
+
+and for the moment it compares only 2 attributes (should later be able to compare the 5 attributes available in the sqlite database)
